@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #0f172a;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-border bg-surface shadow-card;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[13px] font-medium text-muted;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[14px] text-text placeholder:text-slate-500 outline-none transition focus:border-primary focus:shadow-focus disabled:opacity-60;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-[14px] font-semibold transition focus-visible:outline-none focus-visible:shadow-focus disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply btn border border-border bg-surface text-text hover:bg-surface-2;
+  }
+
+  .btn-ghost {
+    @apply btn text-muted hover:bg-surface hover:text-text;
+  }
+
+  .btn-danger {
+    @apply btn border border-match-low/40 text-match-low hover:bg-match-low/10;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md px-2 py-1 text-chip;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-muted;
+  }
+
+  .skeleton {
+    @apply rounded-lg bg-surface;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 520px 100%;
+    background-repeat: no-repeat;
+    animation: shimmer 1.5s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
